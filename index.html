@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,25 +13,55 @@
       background: black;
       overflow: hidden;
     }
+
     iframe {
       width: 100vw;
       height: 100vh;
       border: none;
     }
+
+    /* layar jebakan */
+    #tap {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-family: sans-serif;
+      z-index: 999;
+      cursor: pointer;
+    }
   </style>
 </head>
 <body>
 
+<!-- video autoplay MUTE -->
 <iframe
+  id="yt"
   src="https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&mute=1&controls=0&fs=1"
   allow="autoplay; fullscreen"
   allowfullscreen>
 </iframe>
 
+<!-- jebakan tap -->
+<div id="tap">Tap untuk melanjutkan</div>
+
 <script>
-  // paksa fullscreen (paling sering tembus di Android Chrome)
-  const el = document.documentElement;
-  if (el.requestFullscreen) el.requestFullscreen();
+  const tap = document.getElementById("tap");
+  const yt = document.getElementById("yt");
+
+  tap.addEventListener("click", () => {
+    // unmute + refresh video
+    yt.src = "https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&controls=0&fs=1";
+    tap.remove();
+
+    // paksa fullscreen
+    const el = document.documentElement;
+    if (el.requestFullscreen) el.requestFullscreen();
+  });
 </script>
 
 </body>
