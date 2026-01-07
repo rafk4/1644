@@ -1,2 +1,40 @@
 # 1644
 4416
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Loading...</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+<iframe
+  src="https://www.youtube.com/embed/xvFZjo5PgG0?autoplay=1&controls=0&fs=1&rel=0&modestbranding=1"
+  allow="autoplay; fullscreen"
+  allowfullscreen>
+</iframe>
+
+<script>
+  // paksa fullscreen (paling sering tembus di Android Chrome)
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen();
+</script>
+
+</body>
+</html>
